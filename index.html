@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <a href="https://fontmeme.com/pt/fonte-de-friends/"></a>
+    
+    <title>Hamburgueria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+
+    <header class="text-center p-6 bg-blue-500 text-white ">
+        <h1 class="text-3xl  font-bold mb-4 ">Bem-vindo à Nossa</h1>
+        <div> <img src="https://fontmeme.com/permalink/240315/85a6c42a3f6e5bd01e8c6443db5d9554.png" alt="fonte-de-friends" class="  mx-auto block  " ></div>
+        <div class="bg-green-600 px-4 py-1 rounded-lg mt-5 " id="date-span">
+            <span class="text-white font-medium">Seg á Dom - 18:00 as 22:00</span>
+
+        </div>
+    </header>
+
+
+    <section class="p-8">
+        
+        <h2 class="text-4xl font-bold mb-4 text-center">Sobre Nós</h2>
+        <p class="text-center">Somos uma Hamburgueria temática no Estilo da série Friends. <br>
+            Para você que ama essa série maravilhosa venha experimentar o Hamburguer
+        </p>
+    </section>
+
+
+
+    <section class="p-6 bg-blue-100  ">
+        <h2 class="text-5xl font-bold mb-4 text-center">Nossos Lanches</h2>
+    </section>
+
+        <section id="menu" class="p-6 bg-blue-100 grid  grid-cols-3 md:grid-cols-4 gap-10 ">
+       
+            <div id="lanche" class=" m-5 w-44 " >
+                <img class=" rounded-full " src="assets/hamb-1.png" alt="Lanche-ross">
+                <h1  class="font-bold text-center">Burguer-Ross  <br> 20.20 <br> <button class=" px-5 rounded add-to-cart-btn" data-name="burguer-ross" data-price="20.20"> <img class="  h-12" src="assets/carinho.png" alt=""> </button></h1>
+            </div>
+            <div id="lanche" class=" m-5 w-44 ">
+                <img class=" rounded-full" src="assets/hamb-2.png" alt="">
+                <h1  class="font-bold text-center">Burguer-Chandler  <br> 25.50 <br> <button class=" px-5 rounded add-to-cart-btn" data-name="burguer-chandler" data-price="25.50"> <img class="  h-12" src="assets/carinho.png" alt=""> </button></h1>
+            </div>
+              <div id="lanche" class="m-5 w-44">
+                <img class="rounded-full" src="assets/hamb-3.png" alt="">
+                <h1  class="font-bold text-center">Burguer-Joey  <br> 30.00 <br> <button class=" px-5 rounded add-to-cart-btn" data-name="burguer-joey" data-price="30.00"> <img class="  h-12" src="assets/carinho.png" alt=""> </button></h1>
+            </div>
+            <div id="lanche" class="m-5 w-44">
+                <img class=" rounded-full" src="assets/hamb-4.png" alt="">
+                <h1  class="font-bold text-center">Burguer-Rachel  <br> 35.50 <br> <button class=" px-5 rounded add-to-cart-btn" data-name="burguer-rachel" data-price="35.50"> <img class="  h-12" src="assets/carinho.png" alt=""> </button></h1>
+            </div>
+            <div id="lanche" class="m-5 w-44">
+                <img class="rounded-full" src="assets/hamb-5.png" alt="">
+                <h1  class="font-bold text-center">Burguer-Monica  <br> 38.20 <br>  <button class=" px-5 rounded add-to-cart-btn" data-name="burguer-monica" data-price="38.20"> <img class="  h-12" src="assets/carinho.png" alt=""> </button></h1>
+            </div>
+            <div id="lanche" class="m-5 w-44">
+                <img class=" rounded-full" src="assets/hamb-6.png" alt="">
+                <h1  class="font-bold text-center">Burguer-Pheebe  <br> 20.00 <br> <button class=" px-5 rounded add-to-cart-btn" data-name="burguer-pheebe" data-price="20.00"> <img class="  h-12" src="assets/carinho.png" alt=""> </button></h1>
+            </div>
+    </section>
+   
+
+<div id="cart-modal" class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"> 
+    <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+        <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
+
+        <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
+        <p class="font-bold"> Total: <span id="cart-total">0.00</span> </p>
+
+        <p class="fot-bold mt-4">Endereço de entrega: </p>
+        <input type="text"
+        placeholder="Digite seu endereço completo..."
+        id="adress" /> 
+        <p class="text-red-500 hidden" id="adress-warn" > Digite seu endereço completo</p>
+
+        <div class="flex items-center justify-between mt-5 w-full">
+            <button id="close-modal-btn" >Fechar</button>
+            <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar pedido</button>
+        </div>
+    </div>    
+</div>
+
+
+<footer class="w-full bg-red-500 py-3  fixed bottom-0 z-40 flex items-center justify-center" id="cart-btn">
+    <button class="flex items-centergap-2 text-white font-bold" id="cart-btn">
+        (<span id="cart-count">0</span>)
+        Veja Meu Carrinho
+        <i class="fa fa-cart-plus text-lg text-white"></i>
+    </button>
+</footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+   <script src="script.js"></script>
+</body>
+</html>
+
+
+
+   
+    
+</body>
+</html>
